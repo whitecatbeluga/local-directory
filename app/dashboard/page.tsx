@@ -55,7 +55,7 @@ export default function Page() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="p-4 pt-2 flex flex-wrap items-center gap-2">
+        <div className="p-4 pt-2 flex flex-col sm:flex-row sm:items-center gap-2">
           {/* Search Input */}
           <input
             type="text"
@@ -65,28 +65,31 @@ export default function Page() {
             className="flex-1 min-w-[200px] border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          {/* Search Button */}
-          <button
-            onClick={() => console.log("Search for:", search)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-          >
-            Search
-          </button>
+          <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+            {/* Search Button */}
+            <button
+              onClick={() => console.log("Search for:", search)}
+              className="w-full sm:w-auto px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition"
+            >
+              Search
+            </button>
 
-          {/* Optional: Add New Business Button */}
-          <button
-            onClick={() => console.log("Add new business")}
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
-          >
-            Add Business
-          </button>
+            {/* Add Business Button */}
+            <button
+              onClick={() => console.log("Add new business")}
+              className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+            >
+              Add your Business
+            </button>
+          </div>
         </div>
+
 
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 pt-0 overflow-auto">
           {filteredBusinesses.map((b) => (
-            <CustomCard key={b.id} title={b.title} />
+            <CustomCard key={b.id} />
           ))}
         </div>
       </SidebarInset>
