@@ -40,7 +40,7 @@ async function main() {
     })
     return console.log('Database seeded successfully')
   }
-  console.log('Users already exist')
+  console.log('Migration failed users already exist')
 }
 main().catch((e) => {
   console.error(e);
