@@ -2,6 +2,7 @@ import { PrismaClient, UserRole } from '../app/generated/prisma/'
 
 const prisma = new PrismaClient;
 
+//This migration must only apply in development
 async function main() {
   // await prisma.user.deleteMany();
   const usersExist = prisma.user.findMany({
@@ -37,10 +38,9 @@ async function main() {
         }
       ]
     })
-  } else {
-    return console.log('Users already exists')
+    return console.log('Database seeded successfully')
   }
-  console.log('Database seeded successfully')
+  console.log('Users already exist')
 }
 main().catch((e) => {
   console.error(e);
